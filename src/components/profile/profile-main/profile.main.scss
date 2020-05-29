@@ -1,0 +1,69 @@
+@import "../../../UI/style.scss";
+
+.profile__main-info {
+    border-right: 2px solid $gray;
+    .profile__personal {
+        .profile__personal-content {
+            display: flex;
+            .profile__personal-title,
+            .profile__personal-desc {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+
+    .profile__contact {
+        .profile__contact-content {
+            display: flex;
+            .profile__contact-icons,
+            .profile__contact-desc {
+                display: flex;
+                flex-direction: column;
+            }
+            .profile__contact-icons {
+                color: $black;
+            }
+        }
+    }
+}
+
+.profile__image {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-top: -110px;
+    .profile__userImg {
+        width: 180px;
+        height: 180px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+    .profile__image-upload {
+        display: none;
+        position: relative;
+    }
+    .file-input {
+        display: none;
+    }
+    .profile__uploadIcon {
+        font-size: 30px;
+        color: $blue;
+        position: absolute;
+        top: -110px;
+        left: 42%;
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+    transition: all 0.5s;
+    &:hover {
+        transform: scale(1.05);
+        .profile__image-upload {
+            display: block;
+        }
+    }
+}

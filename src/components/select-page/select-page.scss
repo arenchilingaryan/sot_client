@@ -1,0 +1,39 @@
+@import "../../UI/style";
+
+
+
+.selectPage {
+    width: 400px;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    .selectPage__img-container {
+        display: flex;
+        justify-content: center;
+        img {
+            width: 200px;
+            height: 300px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+    }
+}
+.selectPage__title {
+    color: $white;
+    font-weight: 400;
+    font-size: 20px;
+    color: $black;
+}
+
+.selectPage__buttons {
+    display: flex;
+    justify-content: center;
+
+    .selectPage__button {
+        @include button;
+        margin-left: 5px;
+    }
+}

@@ -1,0 +1,22 @@
+@import '../../../UI/style.scss';
+
+.profile__history-table {
+    &:last-child {
+        border-bottom: 1px solid $gray;
+    }
+}
+
+.history-table-block {
+    display: grid;
+    grid-template-columns: 5% 17% 17% 17% 17% 1fr;
+    border: 1px solid $gray;
+    border-bottom: none;
+}
+.profile__history-table {
+    text-align: center;
+}
+.table-title-block {
+    color: $white;
+    text-transform: uppercase;
+    background: $black;
+}

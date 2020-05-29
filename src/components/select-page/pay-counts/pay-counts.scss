@@ -1,0 +1,22 @@
+@import "../../../UI/style.scss";
+
+.payPage__form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: $boxShadow;
+    .payPage__title {
+        font-weight: 900px;
+        color: $white;
+    }
+}
+
+.payPage__input {
+    @include input;
+}
+
+.payPage__button {
+    @include button;
+    margin-left: 20px;
+    font-size: 12px;
+}

@@ -1,0 +1,86 @@
+@import "../../UI/style.scss";
+
+.inside__page {
+    overflow: scroll;
+    width: 800px;
+    height: 100vh;
+    margin: 0 auto;
+    background: $white;
+    box-shadow: $boxShadow;
+}
+
+.profile__inside__page {
+    overflow: scroll;
+    width: 800px;
+    height: 100vh;
+    margin: 0 auto;
+    background: $white;
+    box-shadow: $boxShadow;
+}
+
+.profile__content {
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    .profile__block {
+        margin: 20px;
+        padding-bottom: 30px;
+        color: $gray;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid $gray;
+    }
+    .profile__title {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $blue;
+        font-family: "Montserrat", sans-serif;
+    }
+}
+
+@media (max-width: 801px) {
+  .profile__inside__page {
+    width: 700px;
+    margin-top: 70px;
+  }
+}
+@media (max-width: 701px) {
+  .profile__inside__page {
+    width: 600px;
+  }
+}
+@media (max-width: 601px) {
+  .profile__inside__page {
+    width: 500px;
+  }
+  .profile__header {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    .profile__header-nickname {
+      margin-left: 0;
+    }
+  }
+  .profile__content {
+    flex-direction: column;
+    .profile__main-info {
+      border-right: none;
+    }
+  }
+  .profile__header-edit {
+    margin-right: 20px;
+  }
+  .profile__image {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 501px) {
+  .profile__inside__page {
+    width: 100%;
+    margin-top: 40px;
+  }
+}

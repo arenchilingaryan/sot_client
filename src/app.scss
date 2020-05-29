@@ -1,0 +1,19 @@
+@import "./UI/style.scss";
+
+.app__wrapper {
+    background: $black;
+    height: 100vh;
+    display: flex;
+    overflow-y: scroll;
+}
+
+.menu__button {
+    position: relative;
+    z-index: 10;
+    width: 100px;
+    height: 60px;
+    padding: 10px;
+    background: $black;
+    color: $white;
+    cursor: pointer;
+}

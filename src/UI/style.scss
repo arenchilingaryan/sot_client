@@ -1,0 +1,84 @@
+$boxShadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+$boxShadowLite: 0 19px 38px rgba(255, 255, 255, 0.3), 0 15px 12px rgba(255, 255, 255, 0.22);
+$blue: #17a1ec;
+$green: #18ff87;
+$black: #1c1c1c;
+$gray: #aaaaac;
+$red: #f6b1b1;
+$white: #ededed;
+$pink: #ff6781;
+
+@mixin button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    width: 150px;
+    height: 50px;
+    border: none;
+    color: $black;
+    border: 4px solid;
+    background: $white;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.4s;
+    font-weight: 700;
+    position: relative;
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 4px;
+        background: $white;
+        transform: skew(50deg);
+        transition: 0.4s;
+    }
+    &:before {
+        top: -4px;
+        left: 10%;
+    }
+    &:after {
+        bottom: -4px;
+        right: 10%;
+    }
+    &:hover::before {
+        left: 75%;
+    }
+    &:hover::after {
+        right: 75%;
+    }
+}
+
+@mixin input {
+    border: none;
+    border-radius: 4px;
+    padding: 4px 11px;
+    outline: none;
+    transition: all 0.3s;
+    color: $black;
+    font-size: 14px;
+    background: $white;
+    border: 2px solid $black;
+    padding: 3px 20px;
+    &:hover, &:focus {
+        border-color: $pink;
+        transform: scale(1.1);
+        box-shadow: 0 5px 5px $pink, 0 5px 5px $pink;
+    }
+}
+
+.page {
+    max-height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.inside__page {
+    padding: 30px;
+}
+
+// SCROLLBAR
+
+::-webkit-scrollbar {
+    width: 0;
+}
+

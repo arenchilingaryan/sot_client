@@ -1,0 +1,52 @@
+@import '../../../UI/style';
+
+.register__form {
+    width: 400px;
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: $boxShadow;
+    h1 {
+        color: $white
+    }
+}
+.login__form {
+    display: flex;
+    flex-direction: column;
+    color: $white;
+}
+.login__btns {
+    margin-top: 20px;
+}
+.login__button {
+    @include button;
+    margin-left: 20px;
+}
+.login__input {
+    @include input;
+}
+.login__input-line {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.password-eye-open {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    font-size: 15px;
+}
+.password-eye-closed {
+    position: absolute;
+    right: 10px;
+    bottom: 8px;
+    font-size: 15px;
+}
+.login__error {
+    color: red;
+    font-size: 20px;
+}
+.login__success {
+    color: $green;
+    font-size: 20px;
+}

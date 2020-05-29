@@ -1,0 +1,47 @@
+@import '../../../UI/style.scss';
+
+.work__button {
+    @include button;
+}
+
+.work__wrapper {
+    display: flex;
+    width: 700px;
+    margin: 0 auto;
+    align-items: center;
+    height: 100vh;
+}
+
+.work__card {
+    position: relative;
+    margin-right: 20px;
+    padding: 20px;
+    background: $white;
+    box-shadow: $boxShadow;
+    text-align: center;
+    z-index: 0;
+    transition: all .5s;
+    input, button {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .work__disableTitle {
+        color: $black;
+    }
+    h3 {
+        color: $black;
+    }
+    &:hover {
+        background: $pink;
+    }
+}
+
+.workPage__buyCountsButton {
+    @include button;
+    font-size: 11px;
+}
+.work__status {
+    width: 350px;
+    margin: 0 auto;
+    font-weight: 900;
+}

@@ -1,0 +1,33 @@
+@import '../../../UI/style.scss';
+
+
+.profile__editPage {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.profile__edit-input {
+    @include input;
+    width: 250px;
+    margin-bottom: 20px;
+}
+.profile__edit-button {
+    @include button;
+}
+
+.profile__editForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__edit-inputBlock {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+.profile__edit-textarea {
+    max-height: 100px;
+    overflow-y: scroll;
+    min-height: 100px;
+}

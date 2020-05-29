@@ -1,0 +1,17 @@
+@import '../../UI/style.scss';
+
+.menu {
+    width: 100%;
+    height: 100vh;
+    transition: all 1s;
+    margin-left: 0px;
+    transform: perspective(500px) rotateY(0deg);
+    background: $white;
+}
+.menu__open {
+    margin-left: 200px;
+    transform-origin: left;
+    transform: perspective(500px) rotateY(10deg);
+    filter: opacity(.5) blur(5px);
+    border-left: 10px solid $black;
+}
