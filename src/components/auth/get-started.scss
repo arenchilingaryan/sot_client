@@ -1,7 +1,10 @@
 @import "../../UI/style";
 
 .starting__inside {
-    padding: 30px;
+    width: 800px;
+}
+.starting__text {
+    padding: 0px 100px;
 }
 
 
@@ -12,4 +15,22 @@
     margin-right: 10px;
     width: 130px;
     height: 60px;
+}
+
+@media (max-width: 800px) {
+    .starting__inside {
+        width: 600px;
+    }
+    .starting__text {
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .starting__inside {
+        width: 100%;
+    }
+    .starting__text {
+        padding: 0 30px;
+    }
 }

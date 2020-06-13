@@ -6,21 +6,17 @@
     margin: 0 auto;
     text-align: center;
     box-shadow: $boxShadow;
-    h1 {
-        color: $white
-    }
+    color: $black;
 }
 .login__form {
     display: flex;
     flex-direction: column;
-    color: $white;
 }
 .login__btns {
     margin-top: 20px;
 }
 .login__button {
     @include button;
-    margin-left: 20px;
 }
 .login__input {
     @include input;

@@ -10,41 +10,35 @@ $pink: #ff6781;
 
 @mixin button {
     font-family: "Montserrat", sans-serif;
-    font-size: 12px;
+    font-size: 15px;
     width: 150px;
     height: 50px;
-    border: none;
     color: $black;
-    border: 4px solid;
-    background: $white;
-    cursor: pointer;
-    outline: none;
-    transition: all 0.4s;
-    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid $blue;
     position: relative;
-    &:before,
-    &:after {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 4px;
-        background: $white;
-        transform: skew(50deg);
-        transition: 0.4s;
+    overflow: hidden;
+    &:hover {
+        box-shadow: 1px 1px 25px 10px rgba(146, 148, 248, 0.4);
     }
     &:before {
-        top: -4px;
-        left: 10%;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(146, 148, 248, 0.4),
+          transparent
+        );
+        transition: all 650ms;
     }
-    &:after {
-        bottom: -4px;
-        right: 10%;
-    }
-    &:hover::before {
-        left: 75%;
-    }
-    &:hover::after {
-        right: 75%;
+    &:hover:before {
+        left: 100%;
     }
 }
 
@@ -61,13 +55,11 @@ $pink: #ff6781;
     padding: 3px 20px;
     &:hover, &:focus {
         border-color: $pink;
-        transform: scale(1.1);
-        box-shadow: 0 5px 5px $pink, 0 5px 5px $pink;
     }
 }
 
 .page {
-    max-height: 100vh;
+    height: 100vh;
     width: 100%;
     overflow-y: scroll;
 }
