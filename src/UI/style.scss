@@ -29,12 +29,7 @@ $pink: #ff6781;
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          120deg,
-          transparent,
-          rgba(146, 148, 248, 0.4),
-          transparent
-        );
+        background: linear-gradient(120deg, transparent, rgba(146, 148, 248, 0.4), transparent);
         transition: all 650ms;
     }
     &:hover:before {
@@ -53,7 +48,8 @@ $pink: #ff6781;
     background: $white;
     border: 2px solid $black;
     padding: 3px 20px;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         border-color: $pink;
     }
 }
@@ -65,7 +61,7 @@ $pink: #ff6781;
 }
 
 .inside__page {
-    padding: 30px;
+    padding: 20px;
 }
 
 // SCROLLBAR
@@ -73,4 +69,3 @@ $pink: #ff6781;
 ::-webkit-scrollbar {
     width: 0;
 }
-

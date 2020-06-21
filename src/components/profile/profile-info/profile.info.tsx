@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import './profile.info.scss'
 
@@ -17,7 +17,7 @@ const ProfileInfo = (props: any) => {
                 <h3 className="profile__title">History</h3>
 
                 {
-                    history.length == false
+                    history.length === false
                         ? <div>You don't have promoted history</div>
                         : <Fragment>
                             <h3>Total: {history.length} </h3>

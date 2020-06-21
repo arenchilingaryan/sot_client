@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../context/auth.context'
 import { connect } from 'react-redux'
@@ -38,6 +38,7 @@ const Header: React.FC<HeaderProps> = props => {
               {auth.email === null ? <li onClick={props.toggleMenuType} > <NavLink className="header__nav" to="/">Home</NavLink> </li> : null}
               <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/faq">FAQ</NavLink> </li>
               <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/about">About Us</NavLink> </li>
+              <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/support">Support</NavLink> </li>
               {auth.email === null ? null : <li onClick={props.toggleMenuType} className="header__nav subNav">{auth.userName}: {auth.userCount} $</li>}
               {auth.email === null ? null : <li onClick={props.toggleMenuType}> <NavLink className="header__nav" onClick={logoutHandler} to="/logout">Logout</NavLink> </li>}
             </ul>
@@ -47,6 +48,7 @@ const Header: React.FC<HeaderProps> = props => {
               {auth.token ? <li> <NavLink className="header__mobile__nav" to="/prices"><FontAwesomeIcon icon={faFileInvoiceDollar} /></NavLink> </li> : null}
               {auth.token ? <li> <NavLink className="header__mobile__nav" to="/work"><FontAwesomeIcon icon={faPlusSquare} /></NavLink> </li> : null}
               {auth.email === null ? <li> <NavLink className="header__mobile__nav" to="/"><FontAwesomeIcon icon={faHome} /></NavLink> </li> : null}
+              <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/support">Support</NavLink> </li>
               {auth.email === null ? null : <li> <NavLink className="header__mobile__nav" to="/me"><FontAwesomeIcon icon={faUserCircle} /></NavLink> </li>}
             </ul>
             <div className="settings__mobile">
@@ -58,6 +60,7 @@ const Header: React.FC<HeaderProps> = props => {
                 {auth.token ? <li onClick={props.toggleMobileMenu}> <NavLink className="header__nav" to="/select">Select Options</NavLink> </li> : null}
                 {auth.email === null ? <li onClick={props.toggleMobileMenu} > <NavLink className="header__nav" to="/">Home</NavLink> </li> : null}
                 <li onClick={props.toggleMobileMenu}> <NavLink className="header__nav" to="/faq">FAQ</NavLink> </li>
+                <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/support">Support</NavLink> </li>
                 <li onClick={props.toggleMobileMenu}> <NavLink className="header__nav" to="/about">About Us</NavLink> </li>
                 {auth.email === null ? null : <li onClick={props.toggleMobileMenu} className="header__nav subNav">{auth.userName}: {auth.userCount} $</li>}
                 {auth.email === null ? null : <li onClick={props.toggleMobileMenu}> <NavLink className="header__nav" onClick={logoutHandler} to="/logout">Logout</NavLink> </li>}

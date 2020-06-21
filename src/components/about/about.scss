@@ -1,9 +1,23 @@
-@import '../../UI/style.scss';
+@import "../../UI/style.scss";
 
 .about__page {
-    width: 600px;
-    margin: 0 auto;
-    padding: 30px;
     background: $red;
     box-shadow: $boxShadow;
+}
+.about__inside {
+    width: 600px;
+    margin: 0 auto;
+    background: $white;
+    padding: 30px;
+}
+.about__title {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    .about__inside {
+        margin-top: 40px;
+        width: 100%;
+    }
 }

@@ -9,12 +9,20 @@ import { FAQ } from '../faq/faq'
 import { AboutPage } from '../about/about'
 import { OtherLogout } from '../redirect/redirect'
 import './routes.scss'
+import Support from '../support/support'
 
 
 
 function UnAuthRoutes(props) {
+
+    const mobileMenuStyleOpen = {
+        transformOrigin: 'right top', 
+        transform: 'perspective(500px) rotate(45deg) scale(2.5)',
+    }
+
     return (
-        <div className={ props.menu ? "menu menu__open" : "menu" }>
+        <div className={ props.menu ? "menu menu__open" : "menu" }
+        style={ props.mobileMenu ? mobileMenuStyleOpen : null }>
             <Route render={({ location }) => {
                 return (
                     <TransitionGroup>
@@ -30,6 +38,7 @@ function UnAuthRoutes(props) {
                                     <Route path="/register" component={Registration} />
                                     <Route path="/faq" component={FAQ} />
                                     <Route path="/about" component={AboutPage} />
+                                    <Route path="/support" component={Support} />
                                     <Route component={OtherLogout} />
 
                             </Switch>
@@ -44,7 +53,8 @@ function UnAuthRoutes(props) {
 
 function mapStateToProps(state) {
     return {
-        menu: state.menu.open
+        menu: state.menu.open,
+        mobileMenu: state.mobileMenu.open
     }
 }
 

@@ -1,2 +1,23 @@
 @import '../../UI/style.scss';
 
+.faq__title {
+  display: flex;
+  justify-content: center;
+}
+
+.faq__link {
+  font-size: 18px;
+  &:hover {
+    color: $pink;
+  }
+}
+.faq__subtitle {
+  font-size: 18px;
+}
+
+@media (max-width: 850px) {
+  .inside__page {
+    width: 100%;
+    padding-top: 0;
+  }
+}

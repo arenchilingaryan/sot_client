@@ -10,6 +10,7 @@ import { FAQ } from '../faq/faq'
 import { AboutPage } from '../about/about'
 import { OtherLogin } from '../redirect/redirect'
 import './routes.scss'
+import Support from '../support/support'
 
 
 
@@ -18,7 +19,6 @@ function AuthRoutes(props) {
     const mobileMenuStyleOpen = {
         transformOrigin: 'right top', 
         transform: 'perspective(500px) rotate(45deg) scale(2.5)',
-        
     }
 
     return (
@@ -40,6 +40,7 @@ function AuthRoutes(props) {
                                     <Route path="/faq" component={FAQ} />
                                     <Route path="/about" component={AboutPage} />
                                     <Route path="/me" component={profileContainer} />
+                                    <Route path="/support" component={Support} />
                                     <Route component={OtherLogin} />
                                 </Switch>
                             </CSSTransition>

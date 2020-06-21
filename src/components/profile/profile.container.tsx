@@ -26,7 +26,7 @@ const ProfileContainer = (props: any) => {
             }
         )
         .then(data => props.setData(data))
-    }, [])
+    }, [auth.email, auth.userId, auth.token, request])
 
     return (
         <Fragment>
