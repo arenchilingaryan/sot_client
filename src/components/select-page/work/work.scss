@@ -5,11 +5,10 @@
 }
 
 .work__wrapper {
+    height: 400px;
     display: flex;
-    width: 700px;
-    margin: 0 auto;
     align-items: center;
-    height: 100vh;
+    justify-content: center;
 }
 
 .work__card {
@@ -32,7 +31,7 @@
         color: $black;
     }
     &:hover {
-        background: $pink;
+        background: #ccc;
     }
 }
 
@@ -44,4 +43,23 @@
     width: 350px;
     margin: 0 auto;
     font-weight: 900;
+}
+
+@media (max-width: 900px) {
+    .work__wrapper {
+        margin: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 100vh;
+    }
+}
+@media (max-width: 600px) {
+    .work__wrapper {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20%;
+    }
+    .work__card {
+        margin-bottom: 20px;
+    }
 }

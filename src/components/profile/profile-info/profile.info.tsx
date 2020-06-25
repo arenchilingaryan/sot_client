@@ -36,7 +36,7 @@ const ProfileInfo = (props: any) => {
                                         return (
                                             <div className="history-table-block" key={el.code}>
                                                 <span> {history.indexOf(el) + 1} </span>
-                                                <span> <a target="_blank" href={el.link}>{el.link.substr(21)}</a> </span>
+                                                <span> <a target="_blank" rel="noopener noreferrer" href={el.link}>{el.link.substr(21)}</a> </span>
                                                 <span> {el.trafic} </span>
                                                 <span> {el.genre} </span>
                                                 <span> {el.amount} </span>

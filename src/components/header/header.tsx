@@ -31,8 +31,8 @@ const Header: React.FC<HeaderProps> = props => {
     return (
       <div>
         <nav className={ props.menu ? "header header__open" : "header" }>
-            <div><h1>Shot on top</h1></div>
             <ul className="header__items">
+              <div>&#160;&#160;&#160;</div>
               {auth.email === null ? null : <li onClick={props.toggleMenuType} > <NavLink className="header__nav" to="/me">My Account</NavLink> </li>}
               {auth.token ? <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/select">Select Options</NavLink> </li> : null}
               {auth.email === null ? <li onClick={props.toggleMenuType} > <NavLink className="header__nav" to="/">Home</NavLink> </li> : null}
@@ -48,7 +48,6 @@ const Header: React.FC<HeaderProps> = props => {
               {auth.token ? <li> <NavLink className="header__mobile__nav" to="/prices"><FontAwesomeIcon icon={faFileInvoiceDollar} /></NavLink> </li> : null}
               {auth.token ? <li> <NavLink className="header__mobile__nav" to="/work"><FontAwesomeIcon icon={faPlusSquare} /></NavLink> </li> : null}
               {auth.email === null ? <li> <NavLink className="header__mobile__nav" to="/"><FontAwesomeIcon icon={faHome} /></NavLink> </li> : null}
-              <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/support">Support</NavLink> </li>
               {auth.email === null ? null : <li> <NavLink className="header__mobile__nav" to="/me"><FontAwesomeIcon icon={faUserCircle} /></NavLink> </li>}
             </ul>
             <div className="settings__mobile">

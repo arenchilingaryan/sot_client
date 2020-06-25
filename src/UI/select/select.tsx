@@ -1,7 +1,6 @@
 import React from 'react'
 import { Select } from 'antd'
 import { ISelect } from '../../interfaces/interfaces';
-import './select.scss'
 
 type SelectProps = {
     select: ISelect[]
