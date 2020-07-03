@@ -4,8 +4,8 @@ import './about.scss'
 export const AboutPage = () => {
     return (
         <div className="page about__page">
-            <div className="about__inside">
-                <h1 className="about__title"><strong>What is "Shot On Top"?</strong></h1>
+            <div itemScope itemType="http://schema.org/Organization" className="about__inside">
+                <h1 className="about__title"><strong itemProp="name">What is "Shot On Top"?</strong></h1>
                 <p>
                     Shot on Top is a service for promoting video in the Triller app.
                     With Shot on Top, you can increase the number of likes and views posted to Triller.

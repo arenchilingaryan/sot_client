@@ -56,7 +56,11 @@ const ProfileMainInfo = (props: any) => {
                     loading
                         ? <Spinner />
                         : <div className="profile__image">
-                            <img className="profile__userImg" src={img === '' ? defaultUser : `data:image/png;base64,${img}`} alt="sorry bro :'(" />
+                            <img className="profile__userImg"
+                                itemProp="image"
+                                src={img === '' ? defaultUser : `data:image/png;base64,${img}`}
+                                alt={defaultUser}
+                            />
                             <div className="profile__image-upload">
                                 <label htmlFor="file-input">
                                     <FontAwesomeIcon className="profile__uploadIcon" icon={faFileUpload} />
@@ -68,29 +72,29 @@ const ProfileMainInfo = (props: any) => {
                 <h3 className="profile__title">Personal</h3>
                 <div className="profile__personal-content">
                     <div className="profile__personal-title">
-                        <span>Birthday</span>
+                        <span itemProp="birthDate">Birthday</span>
                         <span>Age</span>
                         <span>Languages</span>
                     </div>
                     <div className="profile__personal-desc">
-                        <span>&nbsp;:&nbsp; {birthday} </span>
+                        <span itemProp="birthDate">&nbsp;:&nbsp; {birthday} </span>
                         <span>&nbsp;:&nbsp; {age} </span>
                         <span>&nbsp;:&nbsp; {languages}</span>
                     </div>
                 </div>
             </div>
             <div className="profile__contact profile__block">
-                <h3 className="profile__title">Contact</h3>
+                <h3 itemProp="contactPoint" className="profile__title">Contact</h3>
                 <div className="profile__contact-content">
                     <div className="profile__contact-icons">
-                        <span><FontAwesomeIcon icon={faEnvelope} /></span>
-                        <span><FontAwesomeIcon icon={faPhoneAlt} /></span>
-                        <span><FontAwesomeIcon icon={faLocationArrow} /></span>
+                        <span itemProp="email"><FontAwesomeIcon icon={faEnvelope} /></span>
+                        <span itemProp="telephone"><FontAwesomeIcon icon={faPhoneAlt} /></span>
+                        <span itemProp="address"><FontAwesomeIcon icon={faLocationArrow} /></span>
                     </div>
                     <div className="profile__contact-desc">
-                        <span>&nbsp;:&nbsp; {email} </span>
-                        <span>&nbsp;:&nbsp; {phoneNumber} </span>
-                        <span>&nbsp;:&nbsp; {locationProfile} </span>
+                        <span itemProp="email">&nbsp;:&nbsp; {email} </span>
+                        <span itemProp="telephone">&nbsp;:&nbsp; {phoneNumber} </span>
+                        <span itemProp="address">&nbsp;:&nbsp; {locationProfile} </span>
                     </div>
                 </div>
             </div>

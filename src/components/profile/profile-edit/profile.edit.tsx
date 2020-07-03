@@ -45,7 +45,7 @@ const ProfileEdit: React.FC = (props: any) => {
 
     return (
         <form onSubmit={editHandler} className="profile__editPage">
-            <h1>Будьте добры, заполните эту хуйню</h1>
+            <h1>Fill out the required</h1>
             <div className="profile__editForm">
                 <div className="profile__edit-inputBlock">
                     <label htmlFor="userName">Username&nbsp;:&nbsp;</label>

@@ -3,9 +3,9 @@ import './support.scss'
 
 export default function Support() {
   return (
-    <div className="support__page page">
+    <div itemScope itemType="http://schema.org/Organization" className="support__page page">
       <h1><strong>Support</strong></h1>
-      <p> For all technical problems, please email: <strong>shotontopofficial@gmail.com</strong></p>
+      <p> For all technical problems, please email: <strong itemProp="email">shotontopofficial@gmail.com</strong></p>
     </div>
   )
 }

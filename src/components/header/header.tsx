@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = props => {
       <div>
         <nav className={ props.menu ? "header header__open" : "header" }>
             <ul className="header__items">
-              <div>&#160;&#160;&#160;</div>
+              <li>&#160;&#160;&#160;</li>
               {auth.email === null ? null : <li onClick={props.toggleMenuType} > <NavLink className="header__nav" to="/me">My Account</NavLink> </li>}
               {auth.token ? <li onClick={props.toggleMenuType}> <NavLink className="header__nav" to="/select">Select Options</NavLink> </li> : null}
               {auth.email === null ? <li onClick={props.toggleMenuType} > <NavLink className="header__nav" to="/">Home</NavLink> </li> : null}

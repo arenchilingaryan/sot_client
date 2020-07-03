@@ -8,7 +8,7 @@ const ProfileHeader = (props: any) => {
     const { userName } = props.profile
     return (
         <div className="profile__header">
-            <div className="profile__header-nickname">
+            <div itemProp="additionalName" className="profile__header-nickname">
                 {userName}
             </div>
             <div className="profile__header-edit">

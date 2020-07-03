@@ -4,11 +4,11 @@ import './select-page.scss'
 
 const SelectPage = () => {
     return (
-        <div className="selectPage page">
-            <h1 className="selectPage__title"><span>Please select</span>&nbsp;&nbsp;option</h1>
+        <div itemScope itemType="http://schema.org/Event" className="selectPage page">
+            <h1 className="selectPage__title"><span itemProp="about">Please select</span>&nbsp;&nbsp;option</h1>
             <div className="selectPage__buttons">
-                <NavLink to="/work"><button className="selectPage__button">Start to work</button></NavLink>
-                <NavLink to="/prices"><button className="selectPage__button">Add Counts</button></NavLink>
+                <NavLink itemProp="offers" className="selectPage__button" to="/work">Start to work</NavLink>
+                <NavLink itemProp="offers" className="selectPage__button" to="/prices">Add Counts</NavLink>
             </div>
         </div>
     )

@@ -46,13 +46,13 @@ const Login: React.FC = () => {
         <div className="page">
             {loading
                 ? <Spinner />
-                : <div className="register__form">
+                : <div itemScope itemType="http://schema.org/CommunicateAction" className="register__form">
                     <div>
-                        <h1>Wellcome To App</h1>
+                        <h1 itemProp="name">Login</h1>
                     </div>
-                    <div className="login__error" style={error ? { display: "block" } : { display: "none" }}>
+                    <div itemProp="actionStatus" className="login__error" style={error ? { display: "block" } : { display: "none" }}>
                         Email or password is wrong
-            </div>
+                    </div>
                     <form className="login__form" onSubmit={loginHandler}>
                         <label htmlFor="email">Email:</label>
                         <input className="login__input"
@@ -79,6 +79,7 @@ const Login: React.FC = () => {
                         <div className="login__btns">
 
                             <button
+                                itemProp="startTime"
                                 className="login__button"
                                 disabled={loading}
                             >

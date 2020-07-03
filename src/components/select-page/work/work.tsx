@@ -57,19 +57,19 @@ export const Work: React.FC = () => {
     }
 
     return (
-        <div className="page">
+        <div itemScope itemType="http://schema.org/Product" className="page">
             <h1 className="work__status" style={{ color: 'red' }} > {error} </h1>
             <h1 className="work__status" style={{ color: 'green' }} > {done} </h1>
             {
                 loading
                     ? <Spinner />
-                    : <div className="work__wrapper">
+                    : <div className="work__wrapper" itemProp="offers" itemScope itemType="http://schema.org/Offer">
                         {
                             auth.userCount >= 5
                                 ?
                                 //@ts-ignore
                                 <form price="5" time="10000" type="1000" id="min-view" className="work__card" onSubmit={views}>
-                                    <h3>1000 Views</h3>
+                                    <h3 itemProp="price">1000 Views</h3>
                                     <input placeholder="Enter Your Link" name="link" className="login__input" type="text" />
                                     <SelectMenu select={select} setParam={setGenre} />
                                     <button className="work__button">Start</button>
@@ -85,7 +85,7 @@ export const Work: React.FC = () => {
                                 ?
                                 //@ts-ignore
                                 <form price="10" time="10000" type="3000" id="view" className="work__card" onSubmit={views}>
-                                    <h3>3000 Views</h3>
+                                    <h3 itemProp="price">3000 Views</h3>
                                     <input placeholder="Enter Your Link" name="link" className="login__input" type="text" />
                                     <SelectMenu select={select} setParam={setGenre} />
                                     <button className="work__button">Start</button>
@@ -101,7 +101,7 @@ export const Work: React.FC = () => {
                                 ?
                                 //@ts-ignore
                                 <form price="25" time="3000" type="10000" id="max-view" className="work__card" onSubmit={views}>
-                                    <h3>10000 Views</h3>
+                                    <h3 itemProp="price">10000 Views</h3>
                                     <input placeholder="Enter Your Link" name="link" className="login__input" type="text" />
                                     <SelectMenu select={select} setParam={setGenre} />
                                     <button className="work__button">Start</button>

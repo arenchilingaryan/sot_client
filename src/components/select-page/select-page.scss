@@ -10,8 +10,9 @@
     height: 100vh;
     margin: 0 auto;
     text-align: center;
-    background-image: url('../../img/select.jpg');
+    background: url('../../img/select.jpg');
 }
+
 .selectPage__title {
     color: $white;
     font-weight: 400;
@@ -22,9 +23,11 @@
 .selectPage__buttons {
     display: flex;
     justify-content: center;
+}
 
-    .selectPage__button {
-        @include button;
-        margin-left: 5px;
-    }
+.selectPage__button {
+    @include button;
+    margin-left: 10px;
+    padding-top: 12px;
+    background: #ccc;
 }

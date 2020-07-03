@@ -24,11 +24,11 @@ const ProfileInfo = (props: any) => {
                             <div className="profile__history-table">
                                 <div className="history-table-block table-title-block">
                                     <span> # </span>
-                                    <span> Link </span>
+                                    <span itemProp="identifier"> Link </span>
                                     <span> View </span>
                                     <span> Genre </span>
                                     <span> Amount </span>
-                                    <span> Total price </span>
+                                    <span itemProp="price"> Total price </span>
                                 </div>
                                 {
                                     history.map((el: any) => {
@@ -36,11 +36,15 @@ const ProfileInfo = (props: any) => {
                                         return (
                                             <div className="history-table-block" key={el.code}>
                                                 <span> {history.indexOf(el) + 1} </span>
-                                                <span> <a target="_blank" rel="noopener noreferrer" href={el.link}>{el.link.substr(21)}</a> </span>
+                                                <span>
+                                                    <a itemProp="identifier" target="_blank" rel="noopener noreferrer" href={el.link}>
+                                                        {el.link.substr(21)}
+                                                    </a>
+                                                </span>
                                                 <span> {el.trafic} </span>
                                                 <span> {el.genre} </span>
                                                 <span> {el.amount} </span>
-                                                <span> {totalprice}$ </span>
+                                                <span itemProp="price"> {totalprice}$ </span>
                                             </div>
                                         )
                                     })

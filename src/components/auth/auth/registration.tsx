@@ -22,7 +22,7 @@ const Registration: React.FC = () => {
         phone: '',
         location: ''
     })
-    
+
     useEffect(() => {
         axios.get('http://geoplugin.net/json.gp').then(res => {
             setForm({ ...form, location: res.data.geoplugin_city })
@@ -44,30 +44,31 @@ const Registration: React.FC = () => {
                 history.push('/login')
             }
         } catch (e) {
-            
+
         }
     }
 
-    const phoneHandler = (phoneNumber: any) => {
+    const phoneHandler = (phoneNumber: string) => {
         setForm({ ...form, phone: phoneNumber })
     }
 
     return (
         <div className="page">
-            <div className="register__form">
+            <div itemScope itemType="http://schema.org/RegisterAction" className="register__form">
                 <div>
-                    <h1>Wellcome To App</h1>
+                    <h1 itemProp="name">Register</h1>
                 </div>
-                <div className="login__error" style={ error ? {display: 'block'} : {display: 'none'} }>
+                <div className="login__error" style={error ? { display: 'block' } : { display: 'none' }}>
                     {error}
                 </div>
                 <form className="login__form" onSubmit={registerHandler}>
-                    <label htmlFor="email">NickName:</label>
+                    <label htmlFor="email">Username:</label>
                     <input className="login__input"
                         onChange={changeHandler}
                         name="nickName" />
                     <label htmlFor="email">Email:</label>
                     <input className="login__input"
+                        itemProp="sameAs"
                         onChange={changeHandler}
                         name="email" />
                     <div className="login__input-line">
@@ -95,16 +96,17 @@ const Registration: React.FC = () => {
 
                     <div className="login__btns">
                         {
-                            loading 
-                            ? <Spinner />
-                            : <button
-                            className="login__button"
-                            disabled={loading}
-                            onClick={registerHandler}
-                        >
-                            Sign Up</button>
+                            loading
+                                ? <Spinner />
+                                : <button
+                                    itemProp="potentialAction"
+                                    className="login__button"
+                                    disabled={loading}
+                                    onClick={registerHandler}
+                                >
+                                    Sign Up</button>
                         }
-                        
+
                     </div>
                 </form>
             </div>

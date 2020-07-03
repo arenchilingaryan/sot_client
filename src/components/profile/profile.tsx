@@ -15,7 +15,7 @@ const ProfilePage: React.FC = (props: any) => {
 
     return (
         <div className="page">
-            <div className="profile__inside__page">
+            <div itemScope itemProp="http://schema.org/Person" className="profile__inside__page">
                 <div className="profile__page-content">
                     {
                         props.profile.edit
