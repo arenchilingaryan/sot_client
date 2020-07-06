@@ -6,10 +6,12 @@ import { SelectMenu } from '../../../UI/select/select'
 import { setSelect } from '../../../UI/select/setSelect'
 import { IBodyWork } from '../../../interfaces/interfaces'
 import { AuthContext } from '../../../context/auth.context'
+import { memoComponent } from '../../../hooks/memo.component';
 import './work.scss'
 
 
-export const Work: React.FC = () => {
+
+export const Work: React.FC = memoComponent(() => {
     const [error, setError] = useState<string>('')
     const [done, setDone] = useState<string>('')
     const [loading, setLoading] = useState<boolean>(false)
@@ -116,4 +118,4 @@ export const Work: React.FC = () => {
 
         </div>
     )
-}
+})

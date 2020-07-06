@@ -10,6 +10,7 @@ import './app.scss'
 
 function App(props) {
 
+
   const { token, login, logout, userId, userCount, email, userName } = useAuth()
 
   const isAuthenticated = !!token
@@ -40,5 +41,6 @@ function mapDispatchToProps(dispatch) {
     toggleMenu: () => dispatch(toggleMenu())
   }
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

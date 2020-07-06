@@ -8,6 +8,7 @@ import '../../UI/transition.scss'
 export const useRoutes = (isAuthenticated) => {
 
 
+
     if (isAuthenticated) {
         return (
             <div className="page page__mobile" >
@@ -15,7 +16,9 @@ export const useRoutes = (isAuthenticated) => {
             </div>
         )
     }
+
     return (
+        
         <div className="page page__mobile" >
             <UnAuthRoutes />
         </div>

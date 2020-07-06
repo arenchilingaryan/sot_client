@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './select-page.scss'
+import { memoComponent } from '../../hooks/memo.component';
 
 const SelectPage = () => {
     return (
@@ -14,4 +15,4 @@ const SelectPage = () => {
     )
 }
 
-export default SelectPage
+export default memoComponent(SelectPage)

@@ -5,6 +5,7 @@ import { AuthContext } from '../../../context/auth.context'
 import { Spinner } from '../../spinner/spinner'
 import { ILoginForm } from '../../../interfaces/interfaces'
 import './login.scss'
+import { memoComponent } from '../../../hooks/memo.component';
 
 const Login: React.FC = () => {
     const { loading, request, clearError } = useHttp()
@@ -92,4 +93,5 @@ const Login: React.FC = () => {
     )
 }
 
-export default Login;
+
+export default memoComponent(Login)

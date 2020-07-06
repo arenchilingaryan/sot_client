@@ -1,17 +1,16 @@
 import React, { Fragment } from 'react'
 import ProfileHeader from './profile-header/profile.header'
 import ProfileMainInfo from './profile-main/profile.main'
-import './profile.scss'
 import ProfileInfo from './profile-info/profile.info'
 import { connect } from 'react-redux'
 import { setProfileData } from '../../redux/reducers/profile.reducer'
 import { setProfileEdit } from '../../redux/reducers/profile.reducer'
 import { IProfileData } from '../../interfaces/interfaces'
 import ProfileEdit from './profile-edit/profile.edit'
-
-
+import './profile.scss'
 
 const ProfilePage: React.FC = (props: any) => {
+
 
     return (
         <div className="page">

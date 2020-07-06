@@ -1,7 +1,8 @@
 import React from 'react'
 import './support.scss'
+import { memoComponent } from '../../hooks/memo.component';
 
-export default function Support() {
+function Support() {
   return (
     <div itemScope itemType="http://schema.org/Organization" className="support__page page">
       <h1><strong>Support</strong></h1>
@@ -9,3 +10,4 @@ export default function Support() {
     </div>
   )
 }
+export default memoComponent(Support)

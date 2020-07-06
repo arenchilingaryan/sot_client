@@ -8,6 +8,7 @@ import 'react-phone-input-2/lib/style.css'
 import axios from 'axios'
 import './login.scss'
 import { Spinner } from '../../spinner/spinner'
+import { memoComponent } from '../../../hooks/memo.component';
 
 const Registration: React.FC = () => {
     const { loading, request, error } = useHttp()
@@ -114,4 +115,4 @@ const Registration: React.FC = () => {
     )
 }
 
-export default Registration;
+export default memoComponent(Registration)

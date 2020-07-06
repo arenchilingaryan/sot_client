@@ -1,8 +1,11 @@
 import React from 'react'
 import './faq.scss'
 import { NavLink } from 'react-router-dom';
+import { memoComponent } from '../../hooks/memo.component';
 
-export const FAQ = () => {
+
+
+ const FAQ = () => {
     return (
         <div className="page inside__page">
             <div itemScope itemType="http://schema.org/Question" className="inside__page">
@@ -62,3 +65,5 @@ export const FAQ = () => {
         </div>
     )
 }
+
+export default memoComponent(FAQ)

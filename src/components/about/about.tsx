@@ -1,7 +1,7 @@
 import React from 'react'
 import './about.scss'
 
-export const AboutPage = () => {
+const AboutPage = () => {
     return (
         <div className="page about__page">
             <div itemScope itemType="http://schema.org/Organization" className="about__inside">
@@ -76,3 +76,5 @@ export const AboutPage = () => {
         </div>
     )
 }
+
+export default AboutPage
