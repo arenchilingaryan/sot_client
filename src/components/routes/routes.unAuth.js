@@ -3,22 +3,23 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import GetStarted from '../auth/get-started'
-import Login from '../auth/auth/login'
-import Registration from '../auth/auth/registration'
 import { OtherLogout } from '../redirect/redirect'
-import Support from '../support/support'
 import { Spinner } from '../spinner/spinner'
 import './routes.scss'
 
+
+const Registration = lazy(() => import('../auth/auth/registration'))
 const FAQ = lazy(() => import('../faq/faq'))
+const Support = lazy(() => import('../support/support'))
 const AboutPage = lazy(() => import('../about/about'))
+const Login = lazy(() => import('../auth/auth/login'))
 
 function UnAuthRoutes(props) {
     const mobileMenuStyleOpen = {
         transformOrigin: 'right top',
         transform: 'perspective(500px) rotate(45deg) scale(2.5)',
     }
-    
+
 
     return (
         <div className={props.menu ? "menu menu__open" : "menu"}
@@ -34,8 +35,20 @@ function UnAuthRoutes(props) {
                             <Switch location={location} >
 
                                 <Route path="/" exact component={GetStarted} />
-                                <Route path="/login" component={Login} />
-                                <Route path="/register" component={Registration} />
+                                <Route path="/login" render={() => {
+                                    return (
+                                        <Suspense fallback={<Spinner />}>
+                                            <Login />
+                                        </Suspense>
+                                    )
+                                }} />
+                                <Route path="/register" render={() => {
+                                    return (
+                                        <Suspense fallback={<Spinner />}>
+                                            <Registration />
+                                        </Suspense>
+                                    )
+                                }} />
                                 <Route path="/faq" render={() => {
                                     return (
                                         <Suspense fallback={<Spinner />}>
@@ -50,7 +63,13 @@ function UnAuthRoutes(props) {
                                         </Suspense>
                                     )
                                 }} />
-                                <Route path="/support" component={Support} />
+                                <Route path="/support" render={() => {
+                                    return (
+                                        <Suspense fallback={<Spinner />}>
+                                            <Support />
+                                        </Suspense>
+                                    )
+                                }} />
                                 <Route component={OtherLogout} />
 
                             </Switch>

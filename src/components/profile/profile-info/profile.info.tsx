@@ -1,9 +1,24 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
+import { IProfileData } from '../../../interfaces/interfaces'
+import ProfileHistoryTableItem from './profile.history.table'
 import './profile.info.scss'
 
-const ProfileInfo = (props: any) => {
+type ProfileInfoProps = {
+    profile: IProfileData
+}
+
+const ProfileInfo: React.FC<ProfileInfoProps> = (props) => {
     const { about, history } = props.profile
+
+    type historyElement = {
+        amount: number
+        link: string
+        genre: string
+        trafic: string
+        price: number
+        code: string
+    }
 
     return (
         <div className="profile__info">
@@ -17,7 +32,7 @@ const ProfileInfo = (props: any) => {
                 <h3 className="profile__title">History</h3>
 
                 {
-                    history.length === false
+                    !history
                         ? <div>You don't have promoted history</div>
                         : <Fragment>
                             <h3>Total: {history.length} </h3>
@@ -31,21 +46,11 @@ const ProfileInfo = (props: any) => {
                                     <span itemProp="price"> Total price </span>
                                 </div>
                                 {
-                                    history.map((el: any) => {
-                                        const totalprice = el.amount * el.price
+                                    history.map((el: historyElement) => {
                                         return (
-                                            <div className="history-table-block" key={el.code}>
-                                                <span> {history.indexOf(el) + 1} </span>
-                                                <span>
-                                                    <a itemProp="identifier" target="_blank" rel="noopener noreferrer" href={el.link}>
-                                                        {el.link.substr(21)}
-                                                    </a>
-                                                </span>
-                                                <span> {el.trafic} </span>
-                                                <span> {el.genre} </span>
-                                                <span> {el.amount} </span>
-                                                <span itemProp="price"> {totalprice}$ </span>
-                                            </div>
+                                            <Fragment key={el.code}>
+                                                <ProfileHistoryTableItem idx={1} {...el} />
+                                            </Fragment>
                                         )
                                     })
                                 }
@@ -53,8 +58,6 @@ const ProfileInfo = (props: any) => {
 
                         </Fragment>
                 }
-
-
             </div>
         </div>
     )

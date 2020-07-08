@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import './select-page.scss'
 import { memoComponent } from '../../hooks/memo.component';
+import './select-page.scss'
 
 const SelectPage = () => {
     return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, Fragment } from 'react'
+import React, { useEffect, useContext, Fragment, useCallback } from 'react'
 import { connect } from 'react-redux';
 import { setProfileData } from '../../redux/reducers/profile.reducer'
 import { setProfileEdit } from '../../redux/reducers/profile.reducer'
@@ -12,21 +12,32 @@ const ProfileContainer = (props: any) => {
     const { request, loading } = useHttp()
     const auth = useContext(AuthContext)
 
-    useEffect((): any => {
-        
-        request(
-            '/api/profile/getinfo',
-            'POST',
-            {
-                email: auth.email,
-                userId: auth.userId
-            },
-            {
-                Authorization: `Bearer ${auth.token}`
+    const setUserData = useCallback(
+        async() => {
+            try {
+                const data = await request(
+                    '/api/profile/getinfo',
+                    'POST',
+                    {
+                        email: auth.email,
+                        userId: auth.userId
+                    },
+                    {
+                        Authorization: `Bearer ${auth.token}`
+                    }
+                )
+                props.setData(data)
+    
+            } catch (e) {
+                throw new Error(e)
             }
-        )
-        .then(data => props.setData(data))
-    }, [auth.email, auth.userId, auth.token, request])
+        },
+        [auth.email, auth.userId, auth.token, request, props.setData],
+    )
+
+    useEffect((): any => {
+        setUserData()
+    }, [auth.email, auth.userId, auth.token, request, props.setData, setUserData])
 
     return (
         <Fragment>

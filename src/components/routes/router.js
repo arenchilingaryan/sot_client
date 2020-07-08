@@ -1,8 +1,9 @@
-import React from 'react'
-import AuthRoutes from './routes.auth'
-import UnAuthRoutes from './routes.unAuth'
+import React, { lazy, Suspense } from 'react'
+import { Spinner } from '../spinner/spinner'
 import '../../UI/transition.scss'
 
+const AuthRoutes = lazy(() => import('./routes.auth'))
+const UnAuthRoutes = lazy(() => import('./routes.unAuth'))
 
 
 export const useRoutes = (isAuthenticated) => {
@@ -12,15 +13,19 @@ export const useRoutes = (isAuthenticated) => {
     if (isAuthenticated) {
         return (
             <div className="page page__mobile" >
-                <AuthRoutes />
+                <Suspense fallback={<Spinner />}>
+                    <AuthRoutes />
+                </Suspense>
             </div>
         )
     }
 
     return (
-        
+
         <div className="page page__mobile" >
-            <UnAuthRoutes />
+            <Suspense fallback={<Spinner />}>
+                <UnAuthRoutes />
+            </Suspense>
         </div>
     )
 }

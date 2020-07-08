@@ -1,57 +1,22 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faPhoneAlt, faLocationArrow, faFileUpload } from '@fortawesome/free-solid-svg-icons'
-import defaultUser from '../../../img/User.jpg'
-import { connect } from 'react-redux'
-import { useHttp } from '../../../hooks/http.hook'
-import { AuthContext } from '../../../context/auth.context'
-import { updateProfileImg } from '../../../redux/reducers/profile.reducer'
 import { Spinner } from '../../spinner/spinner'
+import { IProfileData } from '../../../interfaces/interfaces'
+import defaultUser from '../../../img/User.jpg'
 import './profile.main.scss'
 
+type ProfileMainInfoProps = {
+    handleFileSelect?: any
+    profile: IProfileData
+    loading: boolean
+}
 
-const ProfileMainInfo = (props: any) => {
-    const { request, loading } = useHttp()
-    const auth = useContext(AuthContext)
-
-    const handleFileSelect = (evt: any) => {
-        const f = evt.target.files[0]
-        const reader = new FileReader()
-        reader.onload = (function (theFile) {
-            return async function (e: any) {
-                var binaryData = e.target.result
-                const base64String = window.btoa(binaryData)
-                try {
-                    const imgReq = await request(
-                        '/api/profile/updateimg',
-                        'POST',
-                        { email: auth.email, img: base64String },
-                        {
-                            Authorization: `Bearer ${auth.token}`
-                        }
-                    )
-                    if (!imgReq) {
-                        return console.log('poka')
-                    } else {
-                        props.updateImg(base64String)
-                    }
-
-                } catch (e) {
-                    throw e
-                }
-            }
-        })(f)
-        if (!f) {
-            return null
-        }
-        reader.readAsBinaryString(f)
-    }
-
-    const { birthday, languages, email, phoneNumber, locationProfile, age, img } = props.profile
+const ProfileMainFN:React.FC<ProfileMainInfoProps> = ({ profile, loading, handleFileSelect }) => {
+    const { birthday, languages, email, phoneNumber, locationProfile, age, img } = profile
     return (
         <div className="profile__main-info">
             <div className="profile__personal profile__block">
-
                 {
                     loading
                         ? <Spinner />
@@ -102,16 +67,4 @@ const ProfileMainInfo = (props: any) => {
     )
 }
 
-function mapStateToProps(state: any) {
-    return {
-        profile: state.profilePage
-    }
-}
-
-function mapDispatchToProps(dispatch: any) {
-    return {
-        updateImg: (img: any) => dispatch(updateProfileImg(img))
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileMainInfo)
+export default ProfileMainFN

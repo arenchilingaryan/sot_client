@@ -52,3 +52,20 @@ export interface IProfileData {
     edit: boolean
     history: []
 }
+
+export interface IProfileForm {
+    _id: string
+    img: string
+    userName: string
+    birthday: string
+    languages: string
+    email: string
+    phoneNumber: string
+    locationProfile: string
+    about: string
+    age: string
+}
+
+export interface IMapState {
+    profilePage?: IProfileData
+}

@@ -7,8 +7,8 @@ import { Work } from '../select-page/work/work'
 import { PayPage } from '../select-page/pay-counts/pay-counts'
 import { OtherLogin } from '../redirect/redirect'
 import Support from '../support/support'
-import './routes.scss'
 import { Spinner } from '../spinner/spinner'
+import './routes.scss'
 
 const ProfileContainer = lazy(() => import('../profile/profile.container'))
 const FAQ = lazy(() => import('../faq/faq'))

@@ -1,18 +1,18 @@
 import React, { useState, useContext } from 'react'
 import { connect } from 'react-redux'
-import { IProfileData } from '../../../interfaces/interfaces'
+import { IProfileData, IProfileForm } from '../../../interfaces/interfaces'
 import { setProfileEdit, setProfileData, updateProfileData } from '../../../redux/reducers/profile.reducer'
-import './profile.edit.scss'
 import { useHttp } from '../../../hooks/http.hook'
 import { AuthContext } from '../../../context/auth.context'
-import { Spinner } from '../../spinner/spinner'
+import ProfileEditForm from './profile.edit.form'
+import './profile.edit.scss'
 
 const ProfileEdit: React.FC = (props: any) => {
     const auth = useContext(AuthContext)
     const { request, loading } = useHttp()
 
-    const { _id, about, userName, birthday, languages, email, phoneNumber, locationProfile, age, img } = props.profile 
-    const [form, setForm] = useState({
+    const { _id, about, userName, birthday, languages, email, phoneNumber, locationProfile, age, img } = props.profile
+    const [form, setForm] = useState<IProfileForm>({
         img,
         userName,
         birthday,
@@ -44,40 +44,12 @@ const ProfileEdit: React.FC = (props: any) => {
     }
 
     return (
-        <form onSubmit={editHandler} className="profile__editPage">
-            <h1>Fill out the required</h1>
-            <div className="profile__editForm">
-                <div className="profile__edit-inputBlock">
-                    <label htmlFor="userName">Username&nbsp;:&nbsp;</label>
-                    <input onChange={changeHandler} name="userName" type="text" value={form.userName} className="profile__edit-input" />
-                </div>
-                <div className="profile__edit-inputBlock">
-                    <label htmlFor="birthday">Birthday&nbsp;:&nbsp;</label>
-                    <input onChange={changeHandler} name="birthday" type="text" value={form.birthday} className="profile__edit-input" />
-                </div>
-                <div className="profile__edit-inputBlock">
-                    <label htmlFor="phoneNumber">Phone Number&nbsp;:&nbsp;</label>
-                    <input onChange={changeHandler} name="phoneNumber" type="text" value={form.phoneNumber} className="profile__edit-input" />
-                </div>
-                <div className="profile__edit-inputBlock">
-                    <label htmlFor="languages">Languages&nbsp;:&nbsp;</label>
-                    <input onChange={changeHandler} name="languages" type="text" value={form.languages} className="profile__edit-input" />
-                </div>
-                <div className="profile__edit-inputBlock">
-                    <label htmlFor="age">Age&nbsp;:&nbsp;</label>
-                    <input onChange={changeHandler} name="age" type="text" value={form.age} className="profile__edit-input" />
-                </div>
-                <div className="profile__edit-inputBlock">
-                    <label htmlFor="about">About me&nbsp;:&nbsp;</label>
-                    <textarea onChange={changeHandler} className="profile__edit-textarea profile__edit-input" value={form.about} name="about" />
-                </div>
-            </div>
-            {
-                loading 
-                ? <Spinner />
-                : <button className="profile__edit-button" >Save</button>
-            }
-        </form>
+        <ProfileEditForm
+            loading={loading}
+            form={form}
+            changeHandler={changeHandler}
+            editHandler={editHandler}
+        />
     )
 }
 
@@ -91,7 +63,7 @@ function mapDispatchToProps(dispatch: any) {
     return {
         setData: (data: IProfileData) => dispatch(setProfileData(data)),
         setEdit: () => dispatch(setProfileEdit()),
-        updateData: (form: any) => dispatch(updateProfileData(form))
+        updateData: (form: IProfileData) => dispatch(updateProfileData(form))
     }
 }
 

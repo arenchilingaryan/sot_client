@@ -4,8 +4,8 @@ import { useHttp } from '../../../hooks/http.hook'
 import { AuthContext } from '../../../context/auth.context'
 import { Spinner } from '../../spinner/spinner'
 import { ILoginForm } from '../../../interfaces/interfaces'
-import './login.scss'
 import { memoComponent } from '../../../hooks/memo.component';
+import './login.scss'
 
 const Login: React.FC = () => {
     const { loading, request, clearError } = useHttp()

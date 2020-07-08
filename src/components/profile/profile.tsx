@@ -1,17 +1,20 @@
 import React, { Fragment } from 'react'
-import ProfileHeader from './profile-header/profile.header'
-import ProfileMainInfo from './profile-main/profile.main'
-import ProfileInfo from './profile-info/profile.info'
 import { connect } from 'react-redux'
-import { setProfileData } from '../../redux/reducers/profile.reducer'
-import { setProfileEdit } from '../../redux/reducers/profile.reducer'
 import { IProfileData } from '../../interfaces/interfaces'
+import { setProfileEdit } from '../../redux/reducers/profile.reducer'
 import ProfileEdit from './profile-edit/profile.edit'
+import ProfileHeader from './profile-header/profile.header'
+import ProfileInfo from './profile-info/profile.info'
+import ProfileMainInfoContainer from './profile-main/profile.main.container';
 import './profile.scss'
 
-const ProfilePage: React.FC = (props: any) => {
+type ProfilePageProps = {
+    profile: IProfileData
+    setEdit: () => void
+}
 
-
+const ProfilePage: React.FC<ProfilePageProps> = (props) => {
+    const { setEdit, profile } = props
     return (
         <div className="page">
             <div itemScope itemProp="http://schema.org/Person" className="profile__inside__page">
@@ -20,14 +23,13 @@ const ProfilePage: React.FC = (props: any) => {
                         props.profile.edit
                             ? <ProfileEdit />
                             : <Fragment>
-                                <ProfileHeader setEdit={props.setEdit} />
+                                <ProfileHeader setEdit={setEdit} profile={profile} />
                                 <div className="profile__content">
-                                    <ProfileMainInfo />
+                                    <ProfileMainInfoContainer />
                                     <ProfileInfo />
                                 </div>
                             </Fragment>
                     }
-
                 </div>
             </div>
         </div>
@@ -42,7 +44,6 @@ function mapStateToProps(state: any) {
 
 function mapDispatchToProps(dispatch: any) {
     return {
-        setData: (data: IProfileData) => dispatch(setProfileData(data)),
         setEdit: () => dispatch(setProfileEdit())
     }
 }
