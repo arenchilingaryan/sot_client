@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useMemo } from 'react'
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons'
 import { useHttp } from '../../../hooks/http.hook'
 import { AuthContext } from '../../../context/auth.context'
@@ -28,9 +28,12 @@ const Login: React.FC = () => {
 
     const passwordViewHandler = () => setType(!type)
 
-    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setForm({ ...form, [event.target.name]: (event.target as HTMLInputElement).value })
-    }
+
+    const changeHandler = useMemo(() => {
+        return (event: React.ChangeEvent<HTMLInputElement>) => {
+            setForm({ ...form, [event.target.name]: (event.target as HTMLInputElement).value })
+        }
+    }, [form])
 
     const loginHandler = async (event: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()

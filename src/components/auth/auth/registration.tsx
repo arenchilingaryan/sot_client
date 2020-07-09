@@ -1,4 +1,4 @@
-import React, { useState, useEffect, SyntheticEvent } from 'react'
+import React, { useState, useEffect, SyntheticEvent, useMemo } from 'react'
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons'
 import { useHttp } from '../../../hooks/http.hook'
 import { IRegisterForm } from '../../../interfaces/interfaces'
@@ -33,9 +33,11 @@ const Registration: React.FC = () => {
 
     const passwordViewHandler = () => setType(!type)
 
-    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setForm({ ...form, [event.target.name]: event.target.value })
-    }
+    const changeHandler = useMemo(() => {
+        return (event: React.ChangeEvent<HTMLInputElement>) => {
+            setForm({ ...form, [event.target.name]: event.target.value })
+        }
+    }, [])
 
     const registerHandler = async (event: SyntheticEvent) => {
         event.preventDefault()

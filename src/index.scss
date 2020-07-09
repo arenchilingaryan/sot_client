@@ -36,40 +36,6 @@
     font-weight: normal;
 }
 
-@font-face {
-    font-display: swap;
-    font-family: "HelveticaBlack";
-    src: url("./fonts/HelveticaBlack/HelveticaBlack.eot");
-    src: url("./fonts/HelveticaBlack/HelveticaBlack.eot?#iefix")format("embedded-opentype"),
-    url("./fonts/HelveticaBlack/HelveticaBlack.woff") format("woff"),
-    url("./fonts/HelveticaBlack/HelveticaBlack.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-display: swap;
-    font-family: "HelveticaHeavy";
-    src: url("./fonts/HelveticaHeavy/HelveticaHeavy.eot");
-    src: url("./fonts/HelveticaHeavy/HelveticaHeavy.eot?#iefix")format("embedded-opentype"),
-    url("./fonts/HelveticaHeavy/HelveticaHeavy.woff") format("woff"),
-    url("./fonts/HelveticaHeavy/HelveticaHeavy.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
-
-@font-face {
-    font-display: swap;
-    font-family: "HelveticaThin";
-    src: url("./fonts/HelveticaThin/HelveticaThin.eot");
-    src: url("./fonts/HelveticaThin/HelveticaThin.eot?#iefix")format("embedded-opentype"),
-    url("./fonts/HelveticaThin/HelveticaThin.woff") format("woff"),
-    url("./fonts/HelveticaThin/HelveticaThin.ttf") format("truetype");
-    font-style: normal;
-    font-weight: normal;
-}
-
 body {
     background: gray;
 }

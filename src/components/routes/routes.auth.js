@@ -20,8 +20,9 @@ function AuthRoutes(props) {
     const mobileMenuStyleOpen = {
         transformOrigin: 'right top',
         transform: 'perspective(500px) rotate(45deg) scale(2.5)',
+        filter: 'opacity(.5) blur(2px)'
     }
-
+    
     return (
         <div
             className={props.menu ? "menu menu__open" : "menu"}

@@ -94,7 +94,7 @@
   .settings__mobile__open {
     position: fixed;
     bottom: 50px;
-    animation: menuMount .5s ease-in;
+    animation: menuMount .8s ease-in;
     li {
       list-style-type: none;
       font-size: 20px;
@@ -117,8 +117,8 @@
   0% {
     opacity: 0;
   }
-  50% {
-    opacity: .5;
+  85% {
+    opacity: 0;
   }
   100% {
     opacity: 1;

@@ -2,9 +2,9 @@ import React from 'react'
 import { useAuth } from './hooks/auth.hook'
 import { useRoutes } from './components/routes/router'
 import { AuthContext } from './context/auth.context'
-import Header from './components/header/header'
 import { connect } from 'react-redux'
 import { toggleMenu } from './redux/reducers/menu.reducer'
+import HeaderContainer from './components/header/header.container'
 import './app.scss'
 
 
@@ -22,7 +22,7 @@ function App(props) {
       token, userId, userCount, email, login, logout, userName, isAuthenticated
     }}>
         <div className="app__wrapper">
-          <Header />
+          <HeaderContainer />
           <h1 className="menu__button" onClick={props.toggleMenu} > MENU </h1>
           {routes}
         </div>
