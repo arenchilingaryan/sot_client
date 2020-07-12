@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = props => {
             {auth.token ? <li onClick={toggleMobileMenu}> <NavLink className="header__nav" to="/select">Select Options</NavLink> </li> : null}
             {auth.email === null ? <li onClick={toggleMobileMenu} > <NavLink className="header__nav" to="/">Home</NavLink> </li> : null}
             <li onClick={toggleMobileMenu}> <NavLink className="header__nav" to="/faq">FAQ</NavLink> </li>
-            <li onClick={toggleMenuType}> <NavLink className="header__nav" to="/support">Support</NavLink> </li>
+            <li onClick={toggleMobileMenu}> <NavLink className="header__nav" to="/support">Support</NavLink> </li>
             <li onClick={toggleMobileMenu}> <NavLink className="header__nav" to="/about">About Us</NavLink> </li>
             {auth.email === null ? null : <li onClick={toggleMobileMenu} className="header__nav subNav">{auth.userName}: {auth.userCount} $</li>}
             {auth.email === null ? null : <li onClick={toggleMobileMenu}> <NavLink className="header__nav" onClick={logoutHandler} to="/logout">Logout</NavLink> </li>}
