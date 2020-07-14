@@ -48,7 +48,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "http://5.63.152.158:5000",
   "browserslist": {
     "production": [
       ">0.2%",
