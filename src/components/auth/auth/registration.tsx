@@ -6,9 +6,9 @@ import { useHistory } from 'react-router'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import axios from 'axios'
-import './login.scss'
 import { Spinner } from '../../spinner/spinner'
 import { memoComponent } from '../../../hooks/memo.component';
+import './login.scss'
 
 const Registration: React.FC = () => {
     const { loading, request, error } = useHttp()
@@ -33,11 +33,9 @@ const Registration: React.FC = () => {
 
     const passwordViewHandler = () => setType(!type)
 
-    const changeHandler = useMemo(() => {
-        return (event: React.ChangeEvent<HTMLInputElement>) => {
-            setForm({ ...form, [event.target.name]: event.target.value })
-        }
-    }, [])
+    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setForm({ ...form, [event.target.name]: event.target.value })
+    }
 
     const registerHandler = async (event: SyntheticEvent) => {
         event.preventDefault()
